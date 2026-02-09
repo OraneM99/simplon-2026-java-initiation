@@ -13,8 +13,13 @@ public class Exercise04Loops {
      * @return la somme de 1 + 2 + ... + n
      */
     public int sumUpToN(int n) {
-        throw new UnsupportedOperationException();
+        int somme = 0;
 
+        for (int i = 1; i <= n; i++) {
+            somme += i;
+        }
+
+        return somme;
     }
     
     /**
@@ -23,8 +28,14 @@ public class Exercise04Loops {
      * @return le nombre inversé
      */
     public int reverseNumber(int number) {
-        throw new UnsupportedOperationException();
+        int reverse = 0;
 
+        while (number != 0) {
+            reverse = reverse * 10 + number % 10;
+            number /= 10;
+        }
+
+        return reverse;
     }
     
     /**
@@ -33,8 +44,15 @@ public class Exercise04Loops {
      * @return n! (n factorielle)
      */
     public int factorial(int n) {
-        throw new UnsupportedOperationException();
+        int facteur = 1;
+        int i = 1;
 
+        while (i <= n) {
+            facteur = facteur * i;
+            i++;
+        }
+
+        return facteur;
     }
     
     /**
@@ -43,9 +61,21 @@ public class Exercise04Loops {
      * @return le nombre de chiffres
      */
     public int countDigits(int number) {
-        throw new UnsupportedOperationException();
+        if (number == 0) {
+            return 1;
+        }
 
+        int compteur = 0;
+
+        while (number != 0) {
+            number /= 10;
+            compteur++;
+        }
+
+        return compteur;
     }
+
+    // On divise le nombre par 10 jusqu'à ce qu'il devienne 0, en comptant les itérations
     
     /**
      * Vérifie si un nombre est premier
@@ -53,7 +83,16 @@ public class Exercise04Loops {
      * @return true si le nombre est premier, false sinon
      */
     public boolean isPrime(int number) {
-        throw new UnsupportedOperationException();
+        if (number <= 1) {
+            return false;
+        }
 
+        for (int i = 2; i < number; i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+
+        return true;
     }
 }
