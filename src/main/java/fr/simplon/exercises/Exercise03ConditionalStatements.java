@@ -16,9 +16,9 @@ public class Exercise03ConditionalStatements {
     public int max(int a, int b) {
         if ( a > b) {
             return a;
-        } else {
-            return b;
         }
+        return b;
+        
     }
     
     /**
@@ -57,11 +57,7 @@ public class Exercise03ConditionalStatements {
      * @return true si le nombre est pair, false sinon
      */
     public boolean isEven(int number) {
-        if (number % 2 == 0) {
-            return true;
-        } else {
-            return false;
-        }
+        return number % 2 == 0;
     }
     
     /**
