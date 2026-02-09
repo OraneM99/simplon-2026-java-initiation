@@ -13,8 +13,15 @@ public class Exercise06ArraysMaxMin {
      * @return la valeur maximale
      */
     public int findMax(int[] array) {
-        throw new UnsupportedOperationException();
+        int max = array[0];
 
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > max) {
+                max = array[i];
+            }
+        }
+
+        return max;
     }
     
     /**
@@ -23,8 +30,15 @@ public class Exercise06ArraysMaxMin {
      * @return la valeur minimale
      */
     public int findMin(int[] array) {
-        throw new UnsupportedOperationException();
+        int min = array[0];
 
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] < min) {
+                min = array[i];
+            }
+        }
+
+        return min;
     }
     
     /**
@@ -33,8 +47,13 @@ public class Exercise06ArraysMaxMin {
      * @return l'index de la valeur maximale (le premier si plusieurs)
      */
     public int findMaxIndex(int[] array) {
-        throw new UnsupportedOperationException();
+        int maxIndex = 0;
 
+        for (int i = 0; i < array.length; i++) {
+            maxIndex = array[i] > array[maxIndex] ? i : maxIndex;
+        }
+
+        return maxIndex;
     }
     
     /**
@@ -43,8 +62,13 @@ public class Exercise06ArraysMaxMin {
      * @return l'index de la valeur minimale (le premier si plusieurs)
      */
     public int findMinIndex(int[] array) {
-        throw new UnsupportedOperationException();
+        int minIndex = 0;
 
+        for (int i = 0; i < array.length; i++) {
+            minIndex = array[i] < array[minIndex] ? i : minIndex;
+        }
+
+        return minIndex;
     }
     
     /**
@@ -53,7 +77,19 @@ public class Exercise06ArraysMaxMin {
      * @return la différence max - min
      */
     public int range(int[] array) {
-        throw new UnsupportedOperationException();
+      
+      int min = array[0];
+      int max = array[0];
 
+      for (int i : array) {
+        if (i < min) {
+            min = i;
+        }
+
+        if (i > max) {
+            max = i;
+        }
+      }
+      return max - min;
     }
 }
