@@ -48,9 +48,11 @@ public class Exercise06ArraysMaxMin {
      */
     public int findMaxIndex(int[] array) {
         int maxIndex = 0;
-
-        for (int i = 0; i < array.length; i++) {
-            maxIndex = array[i] > array[maxIndex] ? i : maxIndex;
+        
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > array[maxIndex]) {
+                maxIndex = i;
+            }
         }
 
         return maxIndex;
