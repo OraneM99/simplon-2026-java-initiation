@@ -13,7 +13,13 @@ public class Exercise09ArrayTransformations {
      * @return un nouveau tableau avec tous les éléments doublés
      */
     public int[] doubleElements(int[] array) {
-        throw new UnsupportedOperationException();
+       int[] doubled = new int[array.length];
+
+       for (int i = 0; i < array.length; i++) {
+            doubled[i] = array[i] * 2;
+       }
+
+       return doubled;
 
     }
     
@@ -23,8 +29,24 @@ public class Exercise09ArrayTransformations {
      * @return un nouveau tableau contenant seulement les nombres pairs
      */
     public int[] filterEvenNumbers(int[] array) {
-        throw new UnsupportedOperationException();
-
+        int compteur = 0;
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                compteur++;
+            }
+        }
+    
+        int[] filArray = new int[compteur];
+        int j = 0;
+        
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] % 2 == 0) {
+                filArray[j] = array[i];
+                j++;
+            }
+        }
+    
+        return filArray;
     }
     
     /**
@@ -33,8 +55,14 @@ public class Exercise09ArrayTransformations {
      * @return un nouveau tableau avec les éléments dans l'ordre inverse
      */
     public int[] reverseArray(int[] array) {
-        throw new UnsupportedOperationException();
 
+        int[] reversed = new int[array.length];
+
+        for (int i = 0; i < array.length; i++) {
+            reversed[i] = array[array.length - 1 - i];
+        }
+
+        return reversed;
     }
     
     /**
@@ -44,8 +72,22 @@ public class Exercise09ArrayTransformations {
      * @return un nouveau tableau contenant d'abord les éléments de array1, puis ceux de array2
      */
     public int[] concatenate(int[] array1, int[] array2) {
-        throw new UnsupportedOperationException();
+        int len = array1.length + array2.length;
+        int[] resultat = new int[len];
 
+        int position = 0;
+
+        for (int i : array1) {
+            resultat[position] = i;
+            position++;
+        }
+
+        for (int i : array2) {
+            resultat[position] = i;
+            position++;
+        }
+
+        return resultat;
     }
     
     /**
@@ -56,7 +98,12 @@ public class Exercise09ArrayTransformations {
      * @return un nouveau tableau contenant les éléments de start à end-1
      */
     public int[] slice(int[] array, int start, int end) {
-        throw new UnsupportedOperationException();
+        int[] newTable = new int[end - start]; 
 
+        for (int i = start; i < end; i++) {
+            newTable[i - start] = array[i];
+        }
+
+        return newTable;
     }
 }

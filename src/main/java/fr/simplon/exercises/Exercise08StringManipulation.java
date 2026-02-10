@@ -92,7 +92,6 @@ public class Exercise08StringManipulation {
             resultat += Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + " ";
         }
 
-
         return resultat.trim();
     }    
 }
