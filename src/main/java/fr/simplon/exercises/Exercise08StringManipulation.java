@@ -1,5 +1,7 @@
 package fr.simplon.exercises;
 
+import java.util.stream.Collectors;
+
 /**
  * Exercice 8: Manipulation de chaînes de caractères
  * 
@@ -13,8 +15,14 @@ public class Exercise08StringManipulation {
      * @return la chaîne inversée
      */
     public String reverseString(String str) {
-        throw new UnsupportedOperationException();
 
+        String stringInverse = "";
+
+        for (int i = str.length() - 1; i >= 0; i--) {
+            stringInverse += str.charAt(i);
+        }
+
+        return stringInverse;
     }
     
     /**
@@ -23,8 +31,18 @@ public class Exercise08StringManipulation {
      * @return true si c'est un palindrome, false sinon
      */
     public boolean isPalindrome(String str) {
-        throw new UnsupportedOperationException();
+        int start = 0;
+        int end = str.length() - 1;
 
+        while (start < end) {
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+            start++;
+            end--;
+        }
+
+        return true;
     }
     
     /**
@@ -33,8 +51,20 @@ public class Exercise08StringManipulation {
      * @return le nombre de voyelles (a, e, i, o, u)
      */
     public int countVowels(String str) {
-        throw new UnsupportedOperationException();
+        int nbrVoyelle = 0;
 
+        str = str.toLowerCase();
+
+        for (int i = 0; i < str.length(); i++) {
+
+            char caractere = str.charAt(i);
+
+            if (caractere == 'a' || caractere == 'e' || caractere == 'i' || caractere == 'o' || caractere == 'u') {
+                nbrVoyelle++;
+            }
+        }
+
+        return nbrVoyelle;
     }
     
     /**
@@ -43,8 +73,9 @@ public class Exercise08StringManipulation {
      * @return le nombre de mots (séparés par des espaces)
      */
     public int countWords(String str) {
-        throw new UnsupportedOperationException();
 
+        int nbrMots = str.split("\\s+").length;
+        return nbrMots;
     }
     
     /**
@@ -52,8 +83,16 @@ public class Exercise08StringManipulation {
      * @param str la chaîne
      * @return la chaîne avec chaque mot commençant par une majuscule
      */
-    public String capitalizeWords(String str) {
-        throw new UnsupportedOperationException();
+    public static String capitalizeWords(String str) {
 
-    }
+        String resultat = "";
+        String[] words = str.split(" ");
+
+        for (String word : words) {
+            resultat += Character.toUpperCase(word.charAt(0)) + word.substring(1).toLowerCase() + " ";
+        }
+
+
+        return resultat.trim();
+    }    
 }

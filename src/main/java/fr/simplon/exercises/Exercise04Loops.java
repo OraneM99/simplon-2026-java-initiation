@@ -45,7 +45,7 @@ public class Exercise04Loops {
      */
     public int factorial(int n) {
         int facteur = 1;
-        int i = 1;
+        int i = 2;
 
         while (i <= n) {
             facteur = facteur * i;
