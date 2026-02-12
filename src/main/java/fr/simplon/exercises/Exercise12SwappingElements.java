@@ -14,7 +14,12 @@ public class Exercise12SwappingElements {
      * @param j second index
      */
     public int[] swap(int[] array, int i, int j) {
-        throw new UnsupportedOperationException();
+        int temp = array[i];
+
+        array[i] = array[j];
+        array[j] = temp;
+
+        return array;
 
     }
     
@@ -26,8 +31,14 @@ public class Exercise12SwappingElements {
      * @return le tableau modifié
      */
     public int[] shiftLeft(int[] array, int fromIndex, int toIndex) {
-        throw new UnsupportedOperationException();
+        int targetValue = array[fromIndex];
 
+        for (int i = fromIndex; i > toIndex; i--) {
+            array[i] = array[i - 1];
+        }
+
+        array[toIndex] = targetValue;
+        return array;
     }
     
     /**
@@ -38,8 +49,14 @@ public class Exercise12SwappingElements {
      * @return le tableau modifié
      */
     public int[] shiftRight(int[] array, int fromIndex, int toIndex) {
-        throw new UnsupportedOperationException();
+        int targetValue = array[fromIndex];
 
+        for (int i = fromIndex; i < toIndex; i++) {
+            array[i] = array[i + 1];
+        }
+
+        array[toIndex] = targetValue;
+        return array;
     }
     
     /**
@@ -48,8 +65,23 @@ public class Exercise12SwappingElements {
      * @return le tableau modifié
      */
     public int[] moveSmallestToFront(int[] array) {
-        throw new UnsupportedOperationException();
+        int minIndex = 0;
 
+        for (int i = 0; i < array.length; i++) {
+            if (array[i] < array[minIndex]) {
+                minIndex = i;
+            }
+        }
+
+        int minValue = array[minIndex];
+
+        for (int j = minIndex; j > 0; j--) {
+            array[j] = array[j - 1];
+        }
+
+        array[0] = minValue;
+
+        return array;
     }
     
     /**
@@ -58,9 +90,24 @@ public class Exercise12SwappingElements {
      * @return le tableau modifié
      */
     public int[] moveLargestToEnd(int[] array) {
-        throw new UnsupportedOperationException();
-
+        int maxIndex = 0;
+    
+        for (int i = 1; i < array.length; i++) {
+            if (array[i] > array[maxIndex]) {
+                maxIndex = i;
+            }
+        }
+    
+        int maxValue = array[maxIndex];
+    
+        for (int i = maxIndex; i < array.length - 1; i++) {
+            array[i] = array[i + 1];
+        }
+    
+        array[array.length - 1] = maxValue;
+        return array;
     }
+    
     
     /**
      * Vérifie si deux éléments adjacents sont dans le bon ordre
@@ -69,8 +116,7 @@ public class Exercise12SwappingElements {
      * @return true si array[i] <= array[i+1], false sinon
      */
     public boolean isInOrder(int[] array, int i) {
-        throw new UnsupportedOperationException();
-
+        return array[i] <= array[i + 1];
     }
     
     /**
@@ -80,8 +126,22 @@ public class Exercise12SwappingElements {
      * @return le tableau après une passe
      */
     public int[] bubblePass(int[] array) {
-        throw new UnsupportedOperationException();
+        boolean nextPass = true;
 
+        for (int i = 0; i < array.length - 1; i++) {
+                
+            for (int j = array.length - 1; j > i; j--) {
+                int temp = 0;
+
+                if (array[j] < array[j - 1]) {
+                    temp = array[j - 1];
+                    array[j - 1] = array[i];
+                    array[j] = temp;
+                }
+            }
+        }
+
+        return array;
     }
     
     /**
